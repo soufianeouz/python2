@@ -9,7 +9,8 @@ def check_temperature(temp_str: str):
             print(f"Error: {tmp}°C is too cold for plants (min 0°C)")
     except ValueError:
         print(f"Error: '{temp_str}' is not a valid number")
-        
+
+
 def test_temperature_input():
     print("=== Garden Temperature Checker ===")
     mylist = ["25", "abc", "100", "-50"]

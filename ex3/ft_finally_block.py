@@ -1,15 +1,16 @@
-def  water_plants(plant_list):
+def water_plants(plant_list):
     print("Opening watering system")
-    try :
+    try:
         for plant in plant_list:
             print("Watering " + plant)
-    except:
+    except TypeError:
         print("Error: Cannot water None - invalid plant!")
-    
+
     finally:
         print("Closing watering system (cleanup)")
 
-def  test_watering_system():
+
+def test_watering_system():
     Plant_list = ["tomato", "lettuce", "carrots"]
     print("Testing normal watering...")
     water_plants(Plant_list)
@@ -24,6 +25,3 @@ def  test_watering_system():
 
 if __name__ == "__main__":
     test_watering_system()
-
-#     Plant_list = [None, None, None]
-#     print(Plant_list)[0]
