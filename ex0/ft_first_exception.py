@@ -1,4 +1,4 @@
-def check_temperature(temp_str: str):
+def check_temperature(temp_str: str) -> None:
     try:
         tmp = int(temp_str)
         if tmp >= 0 and tmp <= 40:
@@ -11,7 +11,7 @@ def check_temperature(temp_str: str):
         print(f"Error: '{temp_str}' is not a valid number")
 
 
-def test_temperature_input():
+def test_temperature_input() -> None:
     print("=== Garden Temperature Checker ===")
     mylist = ["25", "abc", "100", "-50"]
     for temp in mylist:
