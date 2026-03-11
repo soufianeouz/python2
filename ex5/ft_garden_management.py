@@ -8,10 +8,11 @@ class GardenError(Exception):
 
 class GardenManager():
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.plants = []
 
-    def add_plants(self, plant_name, water_level, sunlight_hours):
+    def add_plants(self, plant_name: str, water_level: int,
+                   sunlight_hours: int) -> None:
         try:
             if plant_name == "" or plant_name is None:
                 raise PlantError("Plant name cannot be empty or None!")
@@ -25,7 +26,7 @@ class GardenManager():
         except PlantError as e:
             print("Error adding plant:", e)
 
-    def water_plants(self):
+    def water_plants(self) -> None:
         print("Opening watering system")
         try:
             for plant in self.plants:
@@ -33,7 +34,7 @@ class GardenManager():
         finally:
             print("Closing watering system (cleanup)")
 
-    def check_plant_health(self):
+    def check_plant_health(self) -> None:
         print("Checking plant health...")
         for plant in self.plants:
             try:
@@ -59,7 +60,7 @@ class GardenManager():
                 print(f"Error checking {plant['plant_name']}:", e)
 
 
-def test_garden_management():
+def test_garden_management() -> None:
     print("=== Garden Management System ===\n")
     print("Adding plants to garden...")
     objtest = GardenManager()

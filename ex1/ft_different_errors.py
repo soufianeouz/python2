@@ -30,7 +30,6 @@ def garden_operations() -> None:
     print()
     print("Testing multiple errors together...")
     try:
-        # we can use any error from the last 4 ones
         print(1 / 0)
     except (ValueError, ZeroDivisionError, KeyError, FileNotFoundError):
         print("Caught an error, but program continues!")
