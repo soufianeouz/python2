@@ -1,8 +1,12 @@
-class PlantError(Exception):
+class GardenError(Exception):
     pass
 
 
-class GardenError(Exception):
+class PlantError(GardenError):
+    pass
+
+
+class WaterError(GardenError):
     pass
 
 
@@ -21,7 +25,7 @@ class GardenManager():
                     raise PlantError("Plant is already added!")
             plant_info = {"plant_name": plant_name, "water_level": water_level,
                           "sunlight_hours": sunlight_hours}
-            self.plants.append(plant_info)
+            self.plants += [plant_info]
             print(f"Added {plant_name} successfully")
         except PlantError as e:
             print("Error adding plant:", e)
@@ -39,10 +43,10 @@ class GardenManager():
         for plant in self.plants:
             try:
                 if plant["water_level"] < 1:
-                    raise PlantError(f"Water level {plant['water_level']} "
+                    raise WaterError(f"Water level {plant['water_level']} "
                                      f"is too low (min 1)")
                 if plant["water_level"] > 10:
-                    raise PlantError(f"Water level {plant['water_level']} "
+                    raise WaterError(f"Water level {plant['water_level']} "
                                      f"is too high (max 10)")
 
                 if plant["sunlight_hours"] < 2:
@@ -56,7 +60,7 @@ class GardenManager():
                 print(f"{plant['plant_name']}: healthy (water: "
                       f"{plant['water_level']}, "
                       f"sun: {plant['sunlight_hours']})")
-            except PlantError as e:
+            except (PlantError, WaterError) as e:
                 print(f"Error checking {plant['plant_name']}:", e)
 
 

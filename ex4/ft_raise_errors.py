@@ -4,10 +4,10 @@ def check_plant_health(plant_name: str, water_level: int,
         raise ValueError("Error: Plant name cannot be empty!")
 
     if water_level < 1:
-        raise ValueError(f"Error: Water level {water_level}"
+        raise ValueError(f"Error: Water level {water_level} "
                          f"is too low (min 1)")
     if water_level > 10:
-        raise ValueError(f"Error: Water level {water_level}"
+        raise ValueError(f"Error: Water level {water_level} "
                          f"is too high (max 10)")
 
     if sunlight_hours < 2:

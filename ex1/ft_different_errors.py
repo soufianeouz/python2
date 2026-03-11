@@ -23,9 +23,9 @@ def garden_operations() -> None:
     print("Testing KeyError...")
     try:
         dic = {"name": "soufiane"}
-        print(dic["missing_plant"])
+        print(dic["missing\\_plant"])
     except KeyError:
-        print("Caught KeyError: 'missing_plant'")
+        print("Caught KeyError: 'missing\\_plant'")
 
     print()
     print("Testing multiple errors together...")
